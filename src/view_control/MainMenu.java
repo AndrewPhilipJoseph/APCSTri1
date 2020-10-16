@@ -4,12 +4,8 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.EventQueue;
 
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
+import javax.swing.*;
+import javax.swing.border.MatteBorder;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -68,11 +64,16 @@ public class MainMenu extends JFrame {
         JMenu mnApTest = new JMenu("AP Test");
         menuBar.add(mnApTest);
 
+
+
+
         JMenuItem mntmApReview = new JMenuItem("Review");
         mntmApReview.addActionListener(e -> {
             AP_UI frame = new AP_UI();
             frame.setVisible(true);
         });
+
+
         mnApTest.add(mntmApReview);
 
         JMenu mnJig = new JMenu("Labs");
@@ -84,6 +85,13 @@ public class MainMenu extends JFrame {
             frame.setVisible(true);
         });
         mnJig.add(mntmCalculator);
+
+        JMenuItem mntmGraphingCalculator = new JMenuItem("Graphing Calculator");
+        mntmGraphingCalculator.addActionListener(e -> {
+            GraphingCalculatorUI frame = new GraphingCalculatorUI();
+            frame.setVisible(true);
+        });
+        mnJig.add(mntmGraphingCalculator);
 
         JMenuItem mntmMethodSearch = new JMenuItem("File Search");
         mntmMethodSearch.addActionListener(e -> {
