@@ -1,22 +1,21 @@
 package view_control;
 
 import java.awt.EventQueue;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import java.awt.Font;
 import java.awt.Color;
-import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.border.MatteBorder;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
+import control_calculator.Calculator2;
 import util.Math.OPERATOR;
 
 public class CalculatorUI extends JFrame {
 	private final JLabel calcArea = new JLabel("");
-
+	public static JTextField JBar = new JTextField();
 	private boolean initialCalcAreaInputState;
 	private enum STATE { INITIAL, SAVE1, SAVE2, CALC }
 
@@ -121,7 +120,15 @@ public class CalculatorUI extends JFrame {
 		calcArea.setHorizontalAlignment(SwingConstants.RIGHT);
 		calcArea.setBounds(18, 26, 377, 37);
 		getContentPane().add(calcArea);
-		
+
+
+		JBar.setText("");
+		JBar.setForeground(Color.BLACK);
+		JBar.setFont(new Font("Lucida Grande", Font.PLAIN, 32));
+		JBar.setHorizontalAlignment(SwingConstants.RIGHT);
+		JBar.setBounds(18, 166, 377, 67);
+		getContentPane().add(JBar);
+
 		JButton button_1 = new JButton("1");
 		button_1.addMouseListener(new MouseAdapter() {
 			@Override
@@ -329,8 +336,7 @@ public class CalculatorUI extends JFrame {
 			}
 		});
 		button_plus.addActionListener(e -> {
-			saveValueOfArg1();
-			saveValueOfMathOp(OPERATOR.PLUS);
+			 updateCalcArea(button_plus.getText());
 		});
 		button_plus.setOpaque(true);
 		button_plus.setForeground(Color.WHITE);
@@ -351,8 +357,7 @@ public class CalculatorUI extends JFrame {
 			}
 		});
 		button_minus.addActionListener(e -> {
-			saveValueOfArg1();
-			saveValueOfMathOp(OPERATOR.MINUS);
+			updateCalcArea(button_minus.getText());
 		});
 		button_minus.setOpaque(true);
 		button_minus.setForeground(Color.WHITE);
@@ -373,8 +378,12 @@ public class CalculatorUI extends JFrame {
 			}
 		});
 		button_equals.addActionListener(e -> {
-			saveValueOfArg2();
-			calculateAnswer();
+
+			//JBar.setText(calcArea.getText());
+		String input = calcArea.getText();
+	new Calculator2(input);
+		String output = Calculator2.output;
+			calcArea.setText(String.valueOf(output));
 		});
 		button_equals.setOpaque(true);
 		button_equals.setForeground(Color.WHITE);
@@ -420,8 +429,7 @@ public class CalculatorUI extends JFrame {
 			}
 		});
 		button_multiply.addActionListener(e -> {
-			saveValueOfArg1();
-			saveValueOfMathOp(OPERATOR.MULTIPLY);
+			updateCalcArea(button_multiply.getText());
 		});
 		button_multiply.setOpaque(true);
 		button_multiply.setForeground(Color.WHITE);
@@ -444,8 +452,7 @@ public class CalculatorUI extends JFrame {
 			}
 		});
 		button_divide.addActionListener(e -> {
-			saveValueOfArg1();
-			saveValueOfMathOp(OPERATOR.DIVIDE);
+			updateCalcArea(button_divide.getText());
 		});
 		button_divide.setOpaque(true);
 		button_divide.setForeground(Color.WHITE);
@@ -524,10 +531,7 @@ public class CalculatorUI extends JFrame {
 			}
 		});
 		button_pom.addActionListener(e -> {
-			saveValueOfArg1();
-			arg2=arg1;
-			saveValueOfMathOp(OPERATOR.MULTIPLY);
-			calculateAnswer();
+			updateCalcArea(button_sqrd.getText());
 		});
 		button_sqrd.setOpaque(true);
 		button_sqrd.setForeground(Color.WHITE);
@@ -547,10 +551,7 @@ public class CalculatorUI extends JFrame {
 			}
 		});
 		button_sqrroot.addActionListener(e -> {
-			saveValueOfArg1();
-			arg2=arg1;
-			saveValueOfMathOp(OPERATOR.SQUAREROOT);
-			calculateAnswer();
+			updateCalcArea(button_sqrroot.getText());
 		});
 		button_sqrroot.setOpaque(true);
 		button_sqrroot.setForeground(Color.WHITE);

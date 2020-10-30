@@ -1,5 +1,7 @@
 package view_control;
 
+import control_calculator.Calculator2;
+
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.EventQueue;
@@ -81,7 +83,7 @@ public class MainMenu extends JFrame {
 
         JMenuItem mntmCalculator = new JMenuItem("Calculator");
         mntmCalculator.addActionListener(e -> {
-            CalculatorUI frame = new CalculatorUI();
+            Calculator2 frame = new Calculator2();
             frame.setVisible(true);
         });
         mnJig.add(mntmCalculator);
