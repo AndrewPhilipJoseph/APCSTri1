@@ -381,7 +381,7 @@ public class CalculatorUI extends JFrame {
 
 			//JBar.setText(calcArea.getText());
 		String input = calcArea.getText();
-	new Calculator2(input);
+	//new Calculator2(input);
 		String output = Calculator2.output;
 			calcArea.setText(String.valueOf(output));
 		});

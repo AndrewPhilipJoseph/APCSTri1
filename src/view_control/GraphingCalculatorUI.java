@@ -38,7 +38,7 @@ public class GraphingCalculatorUI extends JFrame {
 
         getContentPane().setBackground(new Color(175, 238, 238));
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setBounds(100, 100, 418, 315);
+        setBounds(100, 100, 818, 315);
         getContentPane().setLayout(null);
 
 

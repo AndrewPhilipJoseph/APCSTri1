@@ -33,7 +33,7 @@ static public String output;
 
 
 
-    public Calculator2(String input) {
+    /*public Calculator2(String input) {
 
 
 
@@ -60,10 +60,10 @@ Seperator in = new Seperator(input);
 
 
 output = String.valueOf(calcNumbers[numbers]);
-
+*/
 
 //new Seperator(input);
     }
 
 
-}
+//}

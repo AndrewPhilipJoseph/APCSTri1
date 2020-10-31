@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Point {
 
 
-    double number[];
+    private ArrayList<Double> number;
    int totalNumbers = 0;
 
 
@@ -17,26 +17,29 @@ public class Point {
     public Point(double x, double y, Seperator mathData) {
         //number[totalNumbers] = 0;
         this.x = x;
-        this.y = calculate(x, mathData);
+        this.y = calculate(mathData);
         GraphingCalculatorUI.JBar.setText(String.valueOf(this.y));
         //Convert(GraphingCalculatorUI.input);
 
     }
 
-    public double calculate(double x, Seperator mathData) {
+    public double calculate(Seperator mathData) {
         int numbers = 0;
 
         number = mathData.numbersList;
-        totalNumbers = mathData.totalAmountNumbers - 1;
+
+        totalNumbers = mathData.totalAmountNumbers;
+
+        GraphingCalculatorUI.JBar.setText(String.valueOf(number.get(totalNumbers)));
 
         ArrayList<Math.OPERATOR> operator = mathData.holder;
      //   GraphingCalculatorUI.JBar.setText(String.valueOf(totalNumbers));
         while (numbers < totalNumbers) {
-            //number[numbers + 1] = Math.calculateIt(number[numbers], operator.get(numbers), number[numbers + 1]);
-            //GraphingCalculatorUI.JBar.setText(String.valueOf(number[numbers+1]));
+            number.set(numbers + 1, Math.calculateIt(number.get(numbers), operator.get(numbers), number.get(numbers + 1)));
+           // GraphingCalculatorUI.JBar.setText(String.valueOf(number.get(numbers+1)));
             numbers++;
         }
-        return number[numbers];
+        return number.get(numbers);
 
     }
 }
