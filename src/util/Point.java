@@ -10,13 +10,13 @@ public class Point {
    int totalNumbers = 0;
 
 
-    double x;
-    double y;
+   public double x;
+    public double y;
 
 
-    public Point(double x, double y, Seperator mathData) {
+    public Point(double x, Seperator mathData) {
         //number[totalNumbers] = 0;
-        this.x = x;
+        getX(x);
         this.y = calculate(mathData);
         GraphingCalculatorUI.JBar.setText(String.valueOf(this.y));
         //Convert(GraphingCalculatorUI.input);
@@ -30,7 +30,7 @@ public class Point {
 
         totalNumbers = mathData.totalAmountNumbers;
 
-        GraphingCalculatorUI.JBar.setText(String.valueOf(number.get(totalNumbers)));
+      //  GraphingCalculatorUI.JBar.setText(String.valueOf(number.get(totalNumbers)));
 
         ArrayList<Math.OPERATOR> operator = mathData.holder;
      //   GraphingCalculatorUI.JBar.setText(String.valueOf(totalNumbers));
@@ -42,42 +42,12 @@ public class Point {
         return number.get(numbers);
 
     }
+
+
+    void getX(double x) {
+        this.x = x;
+    }
 }
 
 
-
-    /*public boolean operatorTest(String itS) {
-    if (itS.equals(Mfns)) {
-        switch (itS) {
-            case "+":
-                holder.add(Math.OPERATOR.PLUS);
-                break;
-
-            case "-":
-                holder.add(Math.OPERATOR.MINUS);
-                break;
-
-            case "*":
-                holder.add(Math.OPERATOR.MULTIPLY);
-                break;
-
-            case "/":
-                holder.add(Math.OPERATOR.DIVIDE);
-                break;
-            default:
-                holder.add(Math.OPERATOR.NOOP);
-                break;
-        }
-return true;
-
-    }
-        return false;
-    }
-
-
-
-
-
-}
-*/
 
