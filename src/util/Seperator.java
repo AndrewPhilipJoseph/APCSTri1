@@ -11,11 +11,13 @@ import view_control.GraphingCalculatorUI;
 
 public class Seperator {
 
+    public ArrayList<FnStorer> functions = new ArrayList<FnStorer>();
 
-    public ArrayList<Math.OPERATOR> holder = new ArrayList<Math.OPERATOR>();
+
+    private ArrayList<Math.OPERATOR> holder = new ArrayList<Math.OPERATOR>();
 
     String stringNumber = "";
-    public ArrayList<Double> numbersList = new ArrayList<Double>();
+    private ArrayList<Double> numbersList = new ArrayList<Double>();
 
     public int totalAmountNumbers;
 
@@ -27,8 +29,7 @@ public class Seperator {
 
 
         totalAmountNumbers = 0;
-       // String xIn = String.valueOf(x);
-       // String input = GraphingCalculatorUI.input.replace("x", xIn); //replaces x in the function with iteration
+       //replaces x in the function with iteration
         //value from in the UI
 
         for (int length = 0; length < input.length(); length++) {
@@ -100,13 +101,15 @@ public class Seperator {
         }
 
         numbersList.add(Double.valueOf(stringNumber));
-        //GraphingCalculatorUI.JBar.setText(String.valueOf(numbersList.get(totalAmountNumbers)));
+
+        store();
+
+
+
+
+
+
     }
-
-
-
-
-
 
 
 
@@ -119,7 +122,16 @@ public class Seperator {
     }
 
 
+    public void store() {
+for (int length = 0; length < totalAmountNumbers; length++) {
 
+
+    FnStorer nextFunction = new FnStorer(numbersList.get(length), holder.get(length), numbersList.get(length+1));
+
+   functions.add(length, nextFunction);
+
+}
+    }
 
 
 

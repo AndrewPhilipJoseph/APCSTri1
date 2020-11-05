@@ -87,22 +87,23 @@ public class GraphingCalculatorUI extends JFrame {
     }
 
     public void getPoints() {
-        for (double x = -10000; x < 10000; x = x + 0.01) {
+        for (double x = -10; x < 10; x = x + 0.01) {
             double y = 0;
 
             Seperator mathData = new Seperator(GraphingCalculatorUI.input, x);
+
             util.Point nextPoint = new util.Point(x, mathData);
 
             Cords.add(nextPoint);
 
-            try {
+            /*try {
                 TheGraph frame = new TheGraph(Cords);
                 frame.setVisible(true);
                 //creates the UI
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
+*/
         }
 
 
